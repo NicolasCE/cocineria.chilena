@@ -196,7 +196,7 @@ code {
 /* Contenedor del Grid */
 .recipe-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Columna flexible */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas flexibles */
   gap: 20px;
   justify-items: center;
 }
@@ -207,9 +207,13 @@ code {
   padding: 20px;
   border-radius: 10px; /* Bordes redondeados */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
-  max-width: 350px;
+  max-width: 300px; /* Tamaño fijo para uniformidad */
+  height: 420px; /* Altura fija */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .recipe-item:hover {
@@ -220,24 +224,28 @@ code {
 /* Imagen de la receta */
 .recipe-item img {
   width: 100%;
-  height: auto;
+  height: 180px; /* Tamaño fijo para la imagen */
+  object-fit: cover; /* Mantiene las proporciones de la imagen */
   border-radius: 10px;
   margin-bottom: 15px;
 }
 
 /* Título y Descripción */
 .recipe-item h3 {
-  font-size: 24px;
+  font-size: 20px;
   color: #2c3e50;
   margin-bottom: 10px;
   font-weight: bold;
 }
 
 .recipe-item p {
-  font-size: 16px;
+  font-size: 14px;
   color: #7f8c8d;
   line-height: 1.5;
+  flex-grow: 1; /* Permite distribuir espacio uniformemente */
+  margin-bottom: 10px;
 }
+
 
 
 /*Seccion de carta o menu*/
@@ -259,7 +267,7 @@ code {
 /* Contenedor del Grid de la Carta */
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Columna flexible */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas uniformes */
   gap: 20px;
   justify-items: center;
 }
@@ -271,7 +279,8 @@ code {
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
   width: 100%;
-  max-width: 350px;
+  max-width: 300px; /* Todas las cartas tendrán la misma anchura máxima */
+  height: 420px; /* Altura fija para mantener uniformidad */
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   opacity: 0; /* Inicialmente oculto */
@@ -309,7 +318,8 @@ code {
 /* Imagen de cada ítem del menú */
 .menu-item img {
   width: 100%;
-  height: auto;
+  height: 180px; /* Tamaño fijo para las imágenes */
+  object-fit: cover; /* Mantiene proporciones */
   border-radius: 10px;
   margin-bottom: 15px;
 }
@@ -317,26 +327,32 @@ code {
 /* Detalles del ítem del menú (título, descripción y precio) */
 .menu-details {
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100% - 195px); /* Ajusta espacio para contenido restante */
 }
 
 .menu-details h3 {
-  font-size: 24px;
+  font-size: 20px;
   color: #2c3e50;
   margin-bottom: 10px;
   font-weight: bold;
 }
 
 .menu-details p {
-  font-size: 16px;
+  font-size: 14px;
   color: #7f8c8d;
   line-height: 1.5;
   margin-bottom: 10px;
+  flex-grow: 1; /* Asegura distribución uniforme */
 }
 
 .menu-details .price {
-  font-size: 20px;
+  font-size: 18px;
   color: #e74c3c;
   font-weight: bold;
+  text-align: right;
 }
 
 /* Animación de la carta al abrirse */
@@ -350,6 +366,7 @@ code {
     opacity: 1;
   }
 }
+
 
 
 /*PRESENTACION*/
@@ -444,100 +461,116 @@ code {
 }
 
 /*COCINEROSS*/
+/* Sección de Cocineros */
 #seccion-cocineros {
   background-color: #f8f9fa;
-  padding: 50px 0;
+  padding: 60px 20px;
   text-align: center;
 }
 
+.titulo-cocineros {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Contenedor de Tarjetas */
+.columnas-cocineros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 0 10px;
+}
+
+/* Tarjeta */
+.columna-cocinero {
+  flex: 1 1 280px; /* Tamaño adaptable */
+  max-width: 320px;
+  min-width: 280px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column; /* Asegura que el contenido interno esté alineado */
+}
+
 .tarjeta-cocinero {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  flex: 1; /* Hace que todas las tarjetas tengan la misma altura */
+  display: flex;
+  flex-direction: column; /* Asegura que los elementos dentro de la tarjeta se distribuyan verticalmente */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 15px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
   overflow: hidden;
   cursor: pointer;
-  position: relative;
-  width: 100%;
 }
 
 .tarjeta-cocinero:hover {
-  transform: translateY(-15px);
+  transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-  background-color: #f1f1f1;
 }
 
+/* Imagen del Cocinero */
 .imagen-cocinero {
-  position: relative;
   overflow: hidden;
-  border-radius: 15px 15px 0 0;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0; /* Evita que la imagen se reduzca */
 }
 
 .imagen-cocinero img {
   width: 100%;
-  height: auto;
+  height: 220px;
+  object-fit: cover;
   transition: transform 0.3s ease;
 }
 
 .imagen-cocinero:hover img {
-  transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+  transform: scale(1.1);
 }
 
-.titulo-cocineros {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.columnas-cocineros {
+/* Contenido */
+.contenido-cocinero {
+  padding: 15px 20px;
+  flex: 1; /* Permite que el contenido ocupe el espacio restante */
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.columna-cocinero {
-  margin-bottom: 30px;
-  flex-basis: 22%;
-  max-width: 300px; /* Asegura que las tarjetas no se expandan demasiado */
+  flex-direction: column;
+  justify-content: space-between; /* Distribuye el contenido de forma uniforme */
 }
 
 .nombre-cocinero {
   font-size: 1.5rem;
   font-weight: bold;
   color: #333;
-  margin-top: 15px;
+  margin: 10px 0;
 }
 
 .rol-cocinero {
   font-size: 1.1rem;
+  font-weight: bold;
   color: #007bff;
-  margin-top: 5px;
+  margin: 10px 0;
 }
 
 .descripcion-cocinero {
   color: #555;
   font-size: 0.95rem;
-  padding: 10px;
   text-align: justify;
+  line-height: 1.5;
 }
 
-.descripcion-cocinero p {
-  margin: 0;
-}
-
+/* Adaptabilidad */
 @media (max-width: 768px) {
   .columna-cocinero {
-    flex-basis: 45%;
+    flex: 1 1 45%;
   }
 }
 
 @media (max-width: 480px) {
   .columna-cocinero {
-    flex-basis: 100%;
+    flex: 1 1 100%;
   }
 }
+
+

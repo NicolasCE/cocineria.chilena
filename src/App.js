@@ -226,18 +226,21 @@ const App = () => {
         </span>
       </a>
 
+      {/* Seccion Cocineros */}
       <section id="seccion-cocineros" class="seccion-cocineros">
         <div class="contenedor-cocineros">
           <h2 class="titulo-cocineros has-text-centered">
             Conoce a Nuestro Equipo de Cocineros
           </h2>
           <div class="columnas-cocineros is-multiline">
-            <div class="columna-cocinero is-12-mobile is-4-tablet is-3-desktop">
+            <div class="columna-cocinero">
               <div class="tarjeta-cocinero">
-                <div class="imagen-cocinero"></div>
+                <div class="imagen-cocinero">
+                  <img src="./img/logo.chef.png" alt="" />
+                </div>
                 <div class="contenido-cocinero">
-                  <p class="nombre-cocinero">Juan Pérez</p>
                   <p class="rol-cocinero">Maestro de Cocina</p>
+                  <p class="nombre-cocinero">Juan Contreras</p>
                   <div class="descripcion-cocinero">
                     <p>
                       Con más de 20 años de experiencia, Juan es un experto en
@@ -249,12 +252,15 @@ const App = () => {
               </div>
             </div>
 
-            <div class="columna-cocinero is-12-mobile is-4-tablet is-3-desktop">
+            <div class="columna-cocinero">
               <div class="tarjeta-cocinero">
-                <div class="imagen-cocinero"></div>
+                <div class="imagen-cocinero">
+                  <img src="./img/ayudante.png" alt="" />
+                </div>
                 <div class="contenido-cocinero">
-                  <p class="nombre-cocinero">Ana López</p>
                   <p class="rol-cocinero">Ayudante de Cocina</p>
+                  <p class="nombre-cocinero">Nicolás Contreras</p>
+
                   <div class="descripcion-cocinero">
                     <p>
                       Ana es una joven promesa en la cocina, especializada en la
@@ -266,12 +272,14 @@ const App = () => {
               </div>
             </div>
 
-            <div class="columna-cocinero is-12-mobile is-4-tablet is-3-desktop">
+            <div class="columna-cocinero">
               <div class="tarjeta-cocinero">
-                <div class="imagen-cocinero"></div>
+                <div class="imagen-cocinero">
+                  <img src="./img/cocinama.png" alt="" />
+                </div>
                 <div class="contenido-cocinero">
-                  <p class="nombre-cocinero">Carlos Gómez</p>
                   <p class="rol-cocinero">Chef Ejecutivo</p>
+                  <p class="nombre-cocinero">Yohanna Elgueta</p>
                   <div class="descripcion-cocinero">
                     <p>
                       Carlos, un chef apasionado por la cocina gourmet, lleva
