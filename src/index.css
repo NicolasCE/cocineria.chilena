@@ -85,7 +85,7 @@ code {
 
 /*estilo de navbar*/
 .navbar {
-  background-color: #2c3e50; /* Fondo oscuro */
+  background-color: #406182; /* Fondo oscuro */
   transition: background-color 0.3s ease;
 }
 
@@ -106,12 +106,12 @@ code {
   background-image: url('../public/img/cocina.png');
   background-size: cover;
   background-position: center;
-  padding: 80px 0;
+  padding: 100px 0;
   color: white;
 }
 
 .section-content {
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
   text-align: center;
 }
@@ -139,11 +139,33 @@ code {
   text-decoration: none;
   margin: 0 5px;
   font-weight: bold;
+  transition: all 0.3s ease; /* Agregar transición suave */
 }
 
+/* Meneo cuando el mouse pasa sobre los enlaces */
 .footer .links a:hover {
   text-decoration: underline;
   color: #2d3436;
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Animación de meneo */
+@keyframes shake {
+  0% {
+    transform: translateX(0); /* Comienza sin desplazarse */
+  }
+  25% {
+    transform: translateX(-5px); /* Mueve a la izquierda */
+  }
+  50% {
+    transform: translateX(5px); /* Mueve a la derecha */
+  }
+  75% {
+    transform: translateX(-5px); /* Mueve a la izquierda */
+  }
+  100% {
+    transform: translateX(0); /* Vuelve a la posición original */
+  }
 }
 
 .footer .copyright {
@@ -151,6 +173,8 @@ code {
   margin-top: 10px;
   font-size: 14px;
 }
+
+
 
 
 /*Section Recetas*/
@@ -190,7 +214,7 @@ code {
 
 .recipe-item:hover {
   transform: translateY(-5px); /* Efecto de elevación al pasar el ratón */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Sombra más fuerte al hacer hover */
+  box-shadow: 0 6px 20px rgba(217, 115, 115, 0.2); /* Sombra más fuerte al hacer hover */
 }
 
 /* Imagen de la receta */
@@ -328,8 +352,192 @@ code {
 }
 
 
+/*PRESENTACION*/
+/* Sección Hero */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #000;
+}
 
+.hero-content {
+  z-index: 1;
+  padding: 0 20px;
+  animation: fadeIn 2s ease-in-out;
+}
 
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 0;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: slideUp 1s forwards;
+}
 
+.hero-title span {
+  color: #ff4500;
+}
 
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-top: 15px;
+  opacity: 0;
+  animation: slideUp 1.5s forwards;
+  animation-delay: 0.5s;
+}
 
+.cta-buttons {
+  margin-top: 20px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 30px;
+  margin: 0 10px;
+  font-size: 1rem;
+  color: #fff;
+  background: #ff4500;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+  background: #e63e00;
+  transform: translateY(-3px);
+  box-shadow: 0px 5px 15px rgba(255, 69, 0, 0.5);
+}
+
+.cta-button.secondary {
+  background: #333;
+}
+
+.cta-button.secondary:hover {
+  background: #111;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/*COCINEROSS*/
+#seccion-cocineros {
+  background-color: #f8f9fa;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.tarjeta-cocinero {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+}
+
+.tarjeta-cocinero:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  background-color: #f1f1f1;
+}
+
+.imagen-cocinero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.imagen-cocinero img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.imagen-cocinero:hover img {
+  transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+}
+
+.titulo-cocineros {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.columnas-cocineros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.columna-cocinero {
+  margin-bottom: 30px;
+  flex-basis: 22%;
+  max-width: 300px; /* Asegura que las tarjetas no se expandan demasiado */
+}
+
+.nombre-cocinero {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 15px;
+}
+
+.rol-cocinero {
+  font-size: 1.1rem;
+  color: #007bff;
+  margin-top: 5px;
+}
+
+.descripcion-cocinero {
+  color: #555;
+  font-size: 0.95rem;
+  padding: 10px;
+  text-align: justify;
+}
+
+.descripcion-cocinero p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .columna-cocinero {
+    flex-basis: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .columna-cocinero {
+    flex-basis: 100%;
+  }
+}

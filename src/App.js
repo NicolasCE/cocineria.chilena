@@ -33,11 +33,31 @@ const App = () => {
           <a className="navbar-item has-text-white" href="#carta">
             Carta
           </a>
-          <a className="navbar-item has-text-white" href="#presentacion">
-            Presentación
+          <a className="navbar-item has-text-white" href="#ubicacion">
+            Ubicación
           </a>
         </div>
       </nav>
+
+      <section class="hero">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Bienvenidos a <span> Sabores Chilenos</span>
+          </h1>
+          <p class="hero-subtitle">
+            Donde las recetas tradicionales se encuentran con la innovación
+            culinaria.
+          </p>
+          <div class="cta-buttons">
+            <a href="#carta" class="cta-button">
+              Explorar Menú
+            </a>
+            <a href="#ubicacion" class="cta-button secondary">
+              Dirección & Ubicacion🌭
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* Secciones */}
       <section id="quienes-somos" className="section section-image">
@@ -63,7 +83,7 @@ const App = () => {
 
       <section id="recetas" className="section-recipes">
         <div className="container">
-          <h2 className="title">Nuestras Recetas</h2>
+          <h2 className="title">Nuestras Especialidades</h2>
           <div className="recipe-grid">
             <div className="recipe-item">
               <img src="./img/br.jpg" alt="Barros Lucos" />
@@ -174,14 +194,17 @@ const App = () => {
                 <span class="price">$4000 CLP</span>
               </div>
             </div>
-            
+
             <div class="menu-item">
-              <img src="./img/empanada_mechada_queso.jpg" alt="Empanada Mechada Queso"></img>
+              <img
+                src="./img/empanada_mechada_queso.jpg"
+                alt="Empanada Mechada Queso"
+              ></img>
               <div class="menu-details">
                 <h3>Empanada Mechada Queso</h3>
                 <p>
-                Empanada rellena con carne mechada y un toque de queso, ¡una
-                combinación irresistible!
+                  Empanada rellena con carne mechada y un toque de queso, ¡una
+                  combinación irresistible!
                 </p>
                 <span class="price">$4300 CLP</span>
               </div>
@@ -190,48 +213,103 @@ const App = () => {
         </div>
       </section>
 
-      <section id="presentacion" className="section">
-        <div className="container">
-          <h2 className="title">Presentación</h2>
-          <p>
-            lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-            risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
-            nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
-            ligula massa, varius a, semper congue, euismod non, mi.
-          </p>
+      {/* Llamado a WhatsApp */}
+      <a
+        href="https://wa.me/973851366?text=Hola,%20bienvenido%20a%20nuestro%20emprendimiento%20familiar.%20Estamos%20encantados%20de%20tenerte%20aquí.%20¿En%20qué%20podemos%20ayudarte%20hoy%20con%20tu%20orden?"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="whatsapp-button"
+      >
+        <i class="fa fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">
+          Haz tu pedido o consulta a través de WhatsApp
+        </span>
+      </a>
+
+      <section id="seccion-cocineros" class="seccion-cocineros">
+        <div class="contenedor-cocineros">
+          <h2 class="titulo-cocineros has-text-centered">
+            Conoce a Nuestro Equipo de Cocineros
+          </h2>
+          <div class="columnas-cocineros is-multiline">
+            <div class="columna-cocinero is-12-mobile is-4-tablet is-3-desktop">
+              <div class="tarjeta-cocinero">
+                <div class="imagen-cocinero"></div>
+                <div class="contenido-cocinero">
+                  <p class="nombre-cocinero">Juan Pérez</p>
+                  <p class="rol-cocinero">Maestro de Cocina</p>
+                  <div class="descripcion-cocinero">
+                    <p>
+                      Con más de 20 años de experiencia, Juan es un experto en
+                      la cocina tradicional chilena. Su pasión por la cocina lo
+                      ha llevado a crear platos innovadores.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="columna-cocinero is-12-mobile is-4-tablet is-3-desktop">
+              <div class="tarjeta-cocinero">
+                <div class="imagen-cocinero"></div>
+                <div class="contenido-cocinero">
+                  <p class="nombre-cocinero">Ana López</p>
+                  <p class="rol-cocinero">Ayudante de Cocina</p>
+                  <div class="descripcion-cocinero">
+                    <p>
+                      Ana es una joven promesa en la cocina, especializada en la
+                      preparación de postres y pastelería chilena. Siempre está
+                      dispuesta a aprender y mejorar.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="columna-cocinero is-12-mobile is-4-tablet is-3-desktop">
+              <div class="tarjeta-cocinero">
+                <div class="imagen-cocinero"></div>
+                <div class="contenido-cocinero">
+                  <p class="nombre-cocinero">Carlos Gómez</p>
+                  <p class="rol-cocinero">Chef Ejecutivo</p>
+                  <div class="descripcion-cocinero">
+                    <p>
+                      Carlos, un chef apasionado por la cocina gourmet, lleva
+                      nuestra oferta culinaria al siguiente nivel con platos
+                      creativos y presentaciones impecables.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Llamado a WhatsApp */}
-      <a
-        href="https://wa.me/973851366"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="whatsapp-button"
-      >
-        <i className="fa fa-whatsapp"></i>
-        <span className="whatsapp-tooltip">
-          Pedidos disponibles vía WhatsApp 📩
-        </span>{" "}
-        {/* Mensaje de consulta */}
-      </a>
-
-      <footer className="footer">
-        <div className="content has-text-centered">
-          <p className="title is-5">Encuéntranos</p>
-          <p className="subtitle is-6">
-            📍 Dirección: Avenida Santa Maria #1140, Constitucion, Chile
-          </p>
-          <div className="links">
-            <a href="#quienes-somos">Quiénes Somos</a> |
-            <a href="#recetas">Recetas</a> |<a href="#carta">Carta</a> |
-            <a href="#historia">Historia</a>
+      <section id="ubicacion">
+        <footer className="footer">
+          <div className="content has-text-centered">
+            <p className="title is-5">Encuéntranos</p>
+            <p className="subtitle is-6">
+              📍 Dirección: Avenida Santa Maria #1140, Constitucion, Chile
+            </p>
+            <div className="links">
+              <a href="#quienes-somos">Quiénes Somos</a> |
+              <a href="#menu">Especialidades</a> |<a href="#carta">Carta</a> |
+              <a href="#historia">Historia</a>
+            </div>
+            <p className="copyright">
+              © 2025 Sabores Chilenos. Todos los derechos reservados.
+            </p>
           </div>
-          <p className="copyright">
-            © 2025 Sabores Chilenos. Todos los derechos reservados.
-          </p>
-        </div>
-      </footer>
+        </footer>
+      </section>
+
+      {/* Scripts*/}
+
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="cookie-consent.js"></script>
+      <script src="animations.js"></script>
     </div>
   );
 };
