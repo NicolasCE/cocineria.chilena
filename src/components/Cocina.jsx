@@ -37,7 +37,7 @@ const Cocina = () => (
 
                   <div class="descripcion-cocinero">
                     <p>
-                      Ana es una joven promesa en la cocina, especializada en la
+                      Nicolas es una joven promesa en la cocina, especializada en la
                       preparación de postres y pastelería chilena. Siempre está
                       dispuesta a aprender y mejorar.
                     </p>

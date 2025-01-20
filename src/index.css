@@ -14,94 +14,130 @@ code {
     monospace;
 }
 
-/* Botón flotante de WhatsApp */
+/* Estilo para el botón flotante de WhatsApp */
 .whatsapp-button {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #16d248; /* Color de WhatsApp */
+  background-color: #25d366; /* Color verde de WhatsApp */
   color: white;
   border-radius: 50%; /* Redondeo completo */
-  padding: 10px; /* Tamaño reducido */
-  width: 50px; /* Hacemos el botón más pequeño */
-  height: 50px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  font-size: 24px; /* Tamaño del icono más pequeño */
+  padding: 15px; /* Botón un poco más grande */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  font-size: 30px; /* Tamaño grande para el icono */
   z-index: 100;
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
-  animation: floatAnimation 1.5s ease-in-out infinite; /* Animación flotante */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
   display: flex; /* Centrado del icono */
   justify-content: center;
   align-items: center;
 }
 
-/* Hover del botón */
+/* Efecto hover en el botón */
 .whatsapp-button:hover {
-  background-color: #16d248; /* Color oscuro de WhatsApp al pasar el cursor */
-  transform: translateY(-5px); /* Efecto de "flotado" al pasar el mouse */
+  transform: scale(1.1); /* Efecto de agrandado */
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* Mensaje flotante del botón */
+/* Tooltip para el mensaje flotante */
 .whatsapp-tooltip {
   position: absolute;
   bottom: 60px; /* Posición por encima del botón */
   right: 50%;
   transform: translateX(50%);
-  background-color: #128C7E; /* Fondo del mensaje */
+  background-color: #128c7e; /* Fondo verde oscuro */
   color: white;
-  padding: 5px 15px; /* Ajuste para texto más largo */
-  border-radius: 10px; /* Bordes redondeados */
+  padding: 8px 20px;
+  border-radius: 8px;
   font-size: 14px;
-  font-weight: bold;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, transform 0.3s ease, width 0.3s ease; /* Transiciones suaves */
-  white-space: nowrap; /* Para que el texto no haga saltos de línea */
+  transition: opacity 0.3s ease, transform 0.3s ease, width 0.3s ease;
+  white-space: nowrap;
 }
 
+/* Mostrar el tooltip al hacer hover */
 .whatsapp-button:hover .whatsapp-tooltip {
   opacity: 1;
   visibility: visible;
-  transform: translateY(-10px) scale(1.05); /* Eleva y agranda ligeramente al pasar el mouse */
+  transform: translateY(-10px);
 }
 
-.whatsapp-tooltip:active {
-  transform: translateY(-10px) scale(1); /* Regresa al tamaño original al hacer clic */
-}
-
-
-/* Animación flotante */
+/* Animación flotante para el botón */
 @keyframes floatAnimation {
   0% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px); /* Mueve el botón hacia arriba */
+    transform: translateY(-15px); /* Sube más que antes */
   }
   100% {
     transform: translateY(0);
   }
 }
 
-/*estilo de navbar*/
+/* Aplicar la animación flotante */
+.whatsapp-button {
+  animation: floatAnimation 1.5s ease-in-out infinite;
+}
+
+
+
+
+/*NAVBARRR*/
+/* Estilo general del navbar */
 .navbar {
-  background-color: rgba(0, 0, 0, 0.7); /* Fondo translúcido */
+  background-color: rgba(0, 0, 0, 0.85); /* Fondo más oscuro para resaltar los íconos */
+  padding: 10px 20px; /* Espaciado adecuado */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra sutil */
 }
+
+/* Estilo del nombre del restaurante */
+.navbar-brand .brand-name {
+  display: flex;
+  align-items: center;
+  color: #ffcc00; /* Color dorado para resaltar el nombre */
+  font-size: 1.5rem; /* Tamaño de fuente mayor para el nombre */
+  font-weight: bold;
+  text-transform: uppercase; /* Estilo mayúsculas */
+  text-decoration: none;
+}
+
+.navbar-brand .brand-name span {
+  margin-left: 10px;
+}
+
+/* Estilo de los íconos en el navbar */
 .navbar-item {
-  font-size: 1rem;
+  font-size: 1.1rem;
   padding: 10px;
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
 }
-.navbar-item:hover {
-  color: #ffcc00; /* Color al pasar el mouse */
-  transition: color 0.3s;
-}
+
+
+
 .navbar-item i {
-  margin-right: 8px;
+  margin-right: 8px; /* Separación entre el ícono y el texto */
+  font-size: 1.3rem; /* Íconos un poco más grandes */
 }
 
-
-
-
+/* Estilo del tooltip en el navbar si se quiere agregar */
+.navbar-item .whatsapp-tooltip {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #128C7E;
+  color: white;
+  padding: 8px;
+  border-radius: 10px;
+  font-size: 14px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+}
 
 
 
@@ -399,12 +435,12 @@ code {
 /*Seccion de carta o menu*/
 /* Sección de la Carta */
 .section-menu {
-  background-color: #f9f9f9; /* Fondo neutro y suave */
+  background-color: #f9f9f9; 
   padding: 50px 20px;
   text-align: center;
 }
 
-/* Título de la Sección */
+/* Título */
 .section-menu .title {
   font-size: 32px;
   color: #2c3e50;
@@ -412,40 +448,36 @@ code {
   margin-bottom: 40px;
 }
 
-/* Contenedor del Grid de la Carta */
+/* Contenedor del Grid */
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas uniformes */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
   gap: 20px;
   justify-items: center;
 }
 
-/* Elemento de cada ítem del menú */
+/* Elemento del menú */
 .menu-item {
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 300px; /* Todas las cartas tendrán la misma anchura máxima */
-  height: 420px; /* Altura fija para mantener uniformidad */
+  max-width: 300px; 
+  height: 420px; 
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  opacity: 0; /* Inicialmente oculto */
+  opacity: 0;
   animation: slideIn 0.5s ease-in-out forwards;
+  cursor: pointer;
 }
 
-.menu-item:nth-child(1) {
-  animation-delay: 0.2s; /* Retardo para animaciones */
-}
-.menu-item:nth-child(2) {
-  animation-delay: 0.4s;
-}
-.menu-item:nth-child(3) {
-  animation-delay: 0.6s;
+.menu-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Animación de entrada de los elementos */
+/* Animación de entrada */
 @keyframes slideIn {
   0% {
     transform: translateY(50px);
@@ -457,28 +489,22 @@ code {
   }
 }
 
-/* Hover del ítem del menú */
-.menu-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Imagen de cada ítem del menú */
+/* Imagen */
 .menu-item img {
   width: 100%;
-  height: 180px; /* Tamaño fijo para las imágenes */
-  object-fit: cover; /* Mantiene proporciones */
+  height: 180px; 
+  object-fit: cover;
   border-radius: 10px;
   margin-bottom: 15px;
 }
 
-/* Detalles del ítem del menú (título, descripción y precio) */
+/* Detalles */
 .menu-details {
   text-align: left;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(100% - 195px); /* Ajusta espacio para contenido restante */
+  height: calc(100% - 195px); 
 }
 
 .menu-details h3 {
@@ -493,7 +519,7 @@ code {
   color: #7f8c8d;
   line-height: 1.5;
   margin-bottom: 10px;
-  flex-grow: 1; /* Asegura distribución uniforme */
+  flex-grow: 1; 
 }
 
 .menu-details .price {
@@ -503,16 +529,17 @@ code {
   text-align: right;
 }
 
-/* Animación de la carta al abrirse */
-@keyframes openMenu {
-  0% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+/* Detalles adicionales (por ejemplo, ingredientes y calorías) */
+.extra-details {
+  font-size: 14px;
+  color: #34495e;
+  margin-top: 10px;
+  transition: max-height 0.3s ease-in-out;
+}
+
+/* Detalles extra */
+.extra-details p {
+  margin: 5px 0;
 }
 
 
@@ -766,16 +793,17 @@ code {
   margin-top: 30px;
 }
 
-.image-gallery img {
+.image-item {
   width: 200px;
   height: 200px;
   object-fit: cover;
   border-radius: 10px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.image-gallery img:hover {
+.image-item:hover {
   transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .testimonials {
@@ -797,11 +825,12 @@ code {
   border-radius: 50px;
   cursor: pointer;
   margin-top: 30px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .cta-button:hover {
   background-color: #ff4c3b;
+  transform: translateY(-3px);
 }
 
 /* Animation for fadeIn effect */
@@ -831,8 +860,55 @@ code {
   }
 }
 
+/* Sección de Platos */
+#platos {
+  padding: 50px 0;
+  background-color: #f9f9f9;
+  text-align: center;
+}
 
-/*xd*/
+.platos-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.plato-item {
+  width: 300px;
+  text-align: center;
+}
+
+.plato-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.plato-description {
+  font-size: 1.1rem;
+  margin-top: 10px;
+  line-height: 1.5;
+  color: #040000;
+}
+
+.plato-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.plato-item img:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+
+
+
 /* Estilo para el banner de Producto Chileno */
 .product-banner {
   display: flex;
@@ -858,29 +934,104 @@ code {
 }
 
 
-
-/*INICO DE SESION*/
-.login-button,
-.logout-button {
-  padding: 10px 20px;
-  background-color: #4285f4;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
+/*UBICACION*/
+/* Estilo para la sección de ubicación */
+.ubicacion-section {
+  background-color: #f7f7f7; /* Fondo claro para la sección */
+  padding: 40px 20px;
 }
 
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.footer {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.user-avatar {
-  width: 50px;
-  height: 50px;
+.footer .content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.title.is-5 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #080807;
+}
+
+.subtitle.is-6 {
+  font-size: 1rem;
+  color: #050404;
+  margin-bottom: 20px;
+}
+
+.map-container iframe {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.links {
+  margin: 20px 0;
+}
+
+.links a {
+  font-size: 1rem;
+  color: #333;
+  text-decoration: none;
+  margin: 0 15px;
+  transition: color 0.3s ease;
+}
+
+.links a:hover {
+  color: #ffcc00;
+}
+
+.social-media {
+  margin-top: 20px;
+}
+
+.social-icon {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+
+.social-icon i {
+  padding: 10px;
   border-radius: 50%;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s ease;
+}
+
+.copyright {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #141010;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px;
+  }
+
+  .title.is-5 {
+    font-size: 1.5rem;
+  }
+
+  .subtitle.is-6 {
+    font-size: 0.9rem;
+  }
+
+  .links a {
+    margin: 0 10px;
+  }
+
+  .social-icon {
+    font-size: 1.2rem;
+  }
 }
 
 
