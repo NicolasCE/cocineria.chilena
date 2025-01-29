@@ -222,25 +222,6 @@ code {
 }
 
 /* Estilo del botón flotante */
-.cta-button1 {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #ff6f61;
-  color: white;
-  font-size: 1.2rem;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  z-index: 100;
-  transition: background-color 0.3s ease;
-}
 
 .cta-button:hover {
   background-color: #ff4c3b;
@@ -357,79 +338,6 @@ code {
   margin-top: 10px;
   font-size: 14px;
 }
-
-
-
-
-/*Section Recetas*/
-/* Sección de Recetas */
-.section-recipes {
-  background-color: #f4f4f4; /* Fondo suave y elegante */
-  padding: 50px 20px;
-  text-align: center;
-}
-
-/* Título de la Sección */
-.section-recipes .title {
-  font-size: 32px;
-  color: #2c3e50;
-  font-weight: bold;
-  margin-bottom: 40px;
-}
-
-/* Contenedor del Grid */
-.recipe-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas flexibles */
-  gap: 20px;
-  justify-items: center;
-}
-
-/* Elemento de cada receta */
-.recipe-item {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px; /* Bordes redondeados */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  width: 100%;
-  max-width: 300px; /* Tamaño fijo para uniformidad */
-  height: 420px; /* Altura fija */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.recipe-item:hover {
-  transform: translateY(-5px); /* Efecto de elevación al pasar el ratón */
-  box-shadow: 0 6px 20px rgba(217, 115, 115, 0.2); /* Sombra más fuerte al hacer hover */
-}
-
-/* Imagen de la receta */
-.recipe-item img {
-  width: 100%;
-  height: 180px; /* Tamaño fijo para la imagen */
-  object-fit: cover; /* Mantiene las proporciones de la imagen */
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-
-/* Título y Descripción */
-.recipe-item h3 {
-  font-size: 20px;
-  color: #2c3e50;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-.recipe-item p {
-  font-size: 14px;
-  color: #7f8c8d;
-  line-height: 1.5;
-  flex-grow: 1; /* Permite distribuir espacio uniformemente */
-  margin-bottom: 10px;
-}
-
 
 
 /*Seccion de carta o menu*/
@@ -860,54 +768,6 @@ code {
   }
 }
 
-/* Sección de Platos */
-#platos {
-  padding: 50px 0;
-  background-color: #f9f9f9;
-  text-align: center;
-}
-
-.platos-gallery {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 30px;
-}
-
-.plato-item {
-  width: 300px;
-  text-align: center;
-}
-
-.plato-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-top: 15px;
-}
-
-.plato-description {
-  font-size: 1.1rem;
-  margin-top: 10px;
-  line-height: 1.5;
-  color: #040000;
-}
-
-.plato-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-}
-
-.plato-item img:hover {
-  transform: scale(1.05);
-}
-
-
-
-
-
-
 
 /* Estilo para el banner de Producto Chileno */
 .product-banner {
@@ -1035,3 +895,220 @@ code {
 }
 
 
+
+
+/*SECCION PLATOS QUIENES SOMS*/
+#platos {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #f0f8ff, #e6f7ff);
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.platos-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.plato-item {
+  width: 320px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plato-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.plato-item img {
+  width: 100%;
+  height: auto;
+  border-bottom: 2px solid #ddd;
+  transition: transform 0.3s ease;
+}
+
+.plato-item img:hover {
+  transform: scale(1.05);
+}
+
+.plato-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 15px 0 10px;
+  color: #555;
+}
+
+.plato-description {
+  font-size: 1rem;
+  margin: 0 15px 15px;
+  line-height: 1.6;
+  color: #666;
+}
+
+
+
+/* Botón flotante para Horario de Atención */
+.horario-float-button {
+  position: fixed;
+  bottom: 120px; /* Ajuste vertical */
+  right: 20px; /* Ajuste horizontal */
+  background-color: #4caf50;
+  color: white;
+  padding: 16px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.horario-float-button:hover {
+  background-color: #45a049;
+  transform: scale(1.1); /* Animación de escala */
+}
+
+.horario-float-button i {
+  font-size: 24px; /* Tamaño del ícono */
+}
+
+
+
+
+/* Estilo general de la sección de opiniones */
+.opiniones-section {
+  background-color: #fff;
+  padding: 30px 20px;
+  border-radius: 0px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  
+}
+
+.opiniones-section .title {
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Estilos para la galería de opiniones */
+.review-container {
+  display: flex;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+/* Estilo de las tarjetas de opinión */
+.review-card {
+  background-color: #f9f9f9;
+  padding: 20px 20px;
+  border-radius: 12px; /* Borde más redondeado */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+  max-width: 360px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none; /* Elimina cualquier borde visible */
+}
+
+.review-card:hover {
+  transform: translateY(-8px); /* Mejora el efecto al pasar el ratón */
+  box-shadow: 0 8px 20px rgba(227, 19, 19, 0.2); /* Sombra más profunda */
+}
+
+/* Estilos de los comentarios */
+.client-comment {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+/* Estilos para el nombre del cliente */
+.client-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #444;
+  margin-top: 10px;
+}
+
+/* Estilo para las estrellas */
+.stars {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.stars .text-yellow-500 {
+  font-size: 20px;
+  color: #ffc107; /* Color amarillo para las estrellas */
+  margin-right: 2px;
+}
+
+/* Diseño responsive */
+@media (max-width: 768px) {
+  .review-card {
+    max-width: 100%;
+  }
+}
+
+
+
+
+/*BOTON DE INICIOS DE SESION CON GOOGLE*/
+
+.auth-buttons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.login-button, .logout-button {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-button {
+  background-color: #db4437;
+  color: white;
+}
+
+.login-button:hover {
+  background-color: #c1351d;
+}
+
+.login-button .icon {
+  margin-right: 8px;
+}
+
+.logout-button {
+  background-color: #555;
+  color: white;
+}
+
+.logout-button:hover {
+  background-color: #333;
+}

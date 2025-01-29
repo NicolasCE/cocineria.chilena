@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Hero = () => (
+const Hero = ({ user, handleLogin, handleLogout }) => (
   <section className="hero">
     <div className="hero-content">
       <h1 className="hero-title">
@@ -18,8 +18,20 @@ const Hero = () => (
           Dirección & Ubicación 🌭
         </Link>
       </div>
+      <div className="auth-buttons">
+        {user ? (
+          <button className="logout-button" onClick={handleLogout}>
+            Cerrar Sesión
+          </button>
+        ) : (
+          <button className="login-button" onClick={handleLogin}>
+            Iniciar Sesión con Google
+          </button>
+        )}
+      </div>
     </div>
   </section>
 );
 
 export default Hero;
+

@@ -43,6 +43,10 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.83.4",
+    "sass-loader": "^16.0.4",
+    "sweetalert2": "^11.15.10"
   }
 }
