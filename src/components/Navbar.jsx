@@ -43,7 +43,7 @@ const Navbar = ({ user }) => (
               </Link>
               <hr className="navbar-divider" />
               <Link to="/" className="navbar-item">
-                Cierra tu session aqui!
+                Cierra tu sesion aqui!
               </Link>
             </div>
           </div>

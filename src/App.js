@@ -8,6 +8,7 @@ import Section from "./components/Section";
 import Ubicacion from "./components/Ubicacion";
 import WhatsAppButton from "./components/WhatsAppButton";
 import Login from "./components/Login";
+import Perfil from "./components/Perfil";
 import { auth, provider } from "./firebase/firebaseConfig";
 import { signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
 
@@ -58,6 +59,7 @@ const App = () => {
         <Route path="/quienes-somos" element={<Section />} />
         <Route path="/carta" element={<Menu />} />
         <Route path="/ubicacion" element={<Ubicacion />} />
+        <Route path="/perfil" element={<Perfil/>} />
         <Route path="/seccion-cocineros" element={<Cocina />} />
         <Route path="/login" element={<Login />} />
         <Route path="/historia" element={<Section />} />
