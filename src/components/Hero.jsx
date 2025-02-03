@@ -1,3 +1,4 @@
+// Hero.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -10,6 +11,7 @@ const Hero = ({ user, handleLogin, handleLogout }) => (
       <p className="hero-subtitle">
         Donde las recetas tradicionales se encuentran con la innovación culinaria.
       </p>
+
       <div className="cta-buttons">
         <Link to="/carta" className="cta-button">
           Explorar Menú
@@ -18,15 +20,19 @@ const Hero = ({ user, handleLogin, handleLogout }) => (
           Dirección & Ubicación 🌭
         </Link>
       </div>
+
       <div className="auth-buttons">
         {user ? (
           <button className="logout-button" onClick={handleLogout}>
             Cerrar Sesión
           </button>
         ) : (
-          <button className="login-button" onClick={handleLogin}>
-            Iniciar Sesión con Google
-          </button>
+          <>
+            {/* Botón (o link) para Iniciar Sesión */}
+            <Link to="/login" className="login-button">
+              Iniciar Sesión
+            </Link>
+          </>
         )}
       </div>
     </div>
@@ -34,4 +40,5 @@ const Hero = ({ user, handleLogin, handleLogout }) => (
 );
 
 export default Hero;
+
 

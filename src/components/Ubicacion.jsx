@@ -38,12 +38,7 @@ const Ubicacion = () => (
           <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon">
             <i className="fab fa-instagram"></i>
           </a>
-        </div>
-
-        <p className="copyright">
-          © 2025 Sabores Chilenos. Todos los derechos reservados.
-        </p>
-      
+        </div>      
     </footer>
   </section>
 );

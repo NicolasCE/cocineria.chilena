@@ -28,11 +28,11 @@ const Navbar = ({ user }) => (
         <Link className="navbar-item" to="/ubicacion">
           <LocationOnIcon fontSize="large" /> <span>Ubicación</span>
         </Link>
-        {user && ( // Mostrar el nombre del usuario si está logueado
+        {user && ( 
           <div className="navbar-item has-dropdown is-hoverable">
             <div className="navbar-link">
-              <AccountCircleIcon fontSize="large" /> {/* Ícono de usuario */}
-              <span className="ml-2">{user.displayName}</span> {/* Nombre del usuario */}
+              <AccountCircleIcon fontSize="large" /> 
+              <span className="ml-2">{user.displayName}</span> 
             </div>
             <div className="navbar-dropdown is-right">
               <Link to="/perfil" className="navbar-item">
@@ -43,7 +43,7 @@ const Navbar = ({ user }) => (
               </Link>
               <hr className="navbar-divider" />
               <Link to="/" className="navbar-item">
-                Presiona aqui para cerrar tu sesion! 
+                Cierra tu session aqui!
               </Link>
             </div>
           </div>
