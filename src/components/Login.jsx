@@ -1,26 +1,31 @@
-import React, { useState } from 'react';
-import { 
-  signInWithEmailAndPassword, 
-  createUserWithEmailAndPassword, 
+import React, { useState, useEffect } from 'react';
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
   sendPasswordResetEmail,
   signOut,
-  updateProfile
+  updateProfile,
 } from 'firebase/auth';
 import { auth } from '../firebase/firebaseConfig'; // Ajusta la ruta si es necesario
 import Swal from 'sweetalert2';
 
 function Login() {
   // Estados del formulario y usuario
-  const [name, setName] = useState(''); // Para el registro
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  
-  // 'login' | 'register' | 'reset'
-  const [mode, setMode] = useState('login'); 
-  // Estado para almacenar el nombre del usuario logueado (displayName)
+  const [mode, setMode] = useState('login'); // 'login' | 'register' | 'reset'
   const [currentUser, setCurrentUser] = useState(null);
+
+  // Limpiar campos cuando cambia el modo
+  useEffect(() => {
+    setName('');
+    setEmail('');
+    setPassword('');
+    setError('');
+  }, [mode]);
 
   /**
    * Validación básica del formulario:
@@ -60,43 +65,29 @@ function Login() {
 
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
-      // Utiliza el displayName o, en su defecto, la parte del email antes de @
       const username = result.user.displayName || result.user.email.split('@')[0];
       setCurrentUser(username);
       Swal.fire({
         icon: 'success',
         title: 'Inicio de sesión completado',
-        text: `Bienvenido, ${username}!`
+        text: `Bienvenido, ${username}!`,
       });
     } catch (err) {
       console.error('Mensaje de error:', err.message);
-    
-      if (err.code === 'auth/email-already-in-use') {
-        setError('Este correo ya está en uso, por favor elige otro.');
-        Swal.fire({
-          icon: 'error',
-          title: 'Correo en uso',
-          text: 'Este correo ya está en uso, por favor elige otro.'
-        });
-      } else if (err.code === 'auth/invalid-credential') {
-        // Mensaje personalizado para "credencial inválida"
-        setError('Las credenciales no son válidas. Verifica tu email y contraseña.');
+      if (err.code === 'auth/invalid-credential') {
         Swal.fire({
           icon: 'error',
           title: 'Credencial inválida',
-          text: 'Las credenciales no son válidas. Verifica tu email y contraseña.'
+          text: 'Las credenciales no son válidas. Verifica tu email y contraseña.',
         });
       } else {
-        // Resto de errores
-        setError('Error al registrar usuario: ' + err.message);
         Swal.fire({
           icon: 'error',
           title: 'Error',
-          text: 'Error al registrar usuario: ' + err.message
+          text: 'Error al iniciar sesión: ' + err.message,
         });
       }
     }
-    
   };
 
   // Maneja el registro de usuario
@@ -106,23 +97,29 @@ function Login() {
 
     try {
       const result = await createUserWithEmailAndPassword(auth, email, password);
-      // Actualiza el perfil del usuario para establecer el displayName
       await updateProfile(result.user, { displayName: name });
       const username = result.user.displayName || name;
       setCurrentUser(username);
       Swal.fire({
         icon: 'success',
         title: 'Cuenta creada',
-        text: `Bienvenido, ${username}!`
+        text: `Bienvenido, ${username}!`,
       });
     } catch (err) {
       console.error(err);
-      setError('Error al registrar usuario: ' + err.message);
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Error al registrar usuario: ' + err.message
-      });
+      if (err.code === 'auth/email-already-in-use') {
+        Swal.fire({
+          icon: 'error',
+          title: 'Correo en uso',
+          text: 'Este correo ya está en uso, por favor elige otro.',
+        });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Error al registrar usuario: ' + err.message,
+        });
+      }
     }
   };
 
@@ -138,15 +135,14 @@ function Login() {
       Swal.fire({
         icon: 'success',
         title: 'Correo enviado',
-        text: 'Se envió un enlace a tu correo para restablecer la contraseña.'
+        text: 'Se envió un enlace a tu correo para restablecer la contraseña.',
       });
     } catch (err) {
       console.error(err);
-      setError('Error al enviar el correo de restablecimiento: ' + err.message);
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: 'Error al enviar el correo de restablecimiento: ' + err.message
+        text: 'Error al enviar el correo de restablecimiento: ' + err.message,
       });
     }
   };
@@ -159,14 +155,14 @@ function Login() {
       Swal.fire({
         icon: 'success',
         title: 'Sesión cerrada',
-        text: 'Has cerrado sesión exitosamente.'
+        text: 'Has cerrado sesión exitosamente.',
       });
     } catch (err) {
       console.error(err);
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: 'Error al cerrar sesión: ' + err.message
+        text: 'Error al cerrar sesión: ' + err.message,
       });
     }
   };
@@ -177,7 +173,9 @@ function Login() {
       <div style={styles.container}>
         <h2 style={styles.title}>Bienvenido, {currentUser}!</h2>
         <p style={styles.text}>Has iniciado sesión con éxito.</p>
-        <button style={styles.button} onClick={handleLogout}>Cerrar Sesión</button>
+        <button style={styles.button} onClick={handleLogout}>
+          Cerrar Sesión
+        </button>
       </div>
     );
   }
@@ -190,20 +188,19 @@ function Login() {
         {mode === 'register' && 'Crear Cuenta'}
         {mode === 'reset' && 'Recuperar Contraseña'}
       </h2>
-  
+
       {error && <p style={styles.error}>{error}</p>}
-  
-      <form 
+
+      <form
         style={styles.form}
         onSubmit={
           mode === 'login'
-            ? handleLogin 
+            ? handleLogin
             : mode === 'register'
-              ? handleRegister
-              : handleResetPassword
+            ? handleRegister
+            : handleResetPassword
         }
       >
-        {/* En modo registro, se muestra un input para el nombre */}
         {mode === 'register' && (
           <label style={styles.label}>
             Nombre
@@ -215,7 +212,7 @@ function Login() {
             />
           </label>
         )}
-  
+
         <label style={styles.label}>
           Email
           <input
@@ -225,19 +222,19 @@ function Login() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>
-  
+
         {mode !== 'reset' && (
           <label style={styles.label}>
             Contraseña
             <div style={styles.passwordContainer}>
               <input
                 style={styles.input}
-                type={showPassword ? "text" : "password"}
+                type={showPassword ? 'text' : 'password'}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <span 
-                style={styles.eyeIcon} 
+              <span
+                style={styles.eyeIcon}
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? '🙈' : '👁️'}
@@ -245,14 +242,14 @@ function Login() {
             </div>
           </label>
         )}
-  
+
         <button style={styles.button} type="submit">
           {mode === 'login' && 'Iniciar Sesión'}
           {mode === 'register' && 'Registrar'}
           {mode === 'reset' && 'Enviar Email de Recuperación'}
         </button>
       </form>
-  
+
       {mode === 'login' && (
         <>
           <p style={styles.text}>
@@ -269,7 +266,7 @@ function Login() {
           </p>
         </>
       )}
-  
+
       {mode === 'register' && (
         <p style={styles.text}>
           ¿Ya tienes cuenta?{' '}
@@ -278,7 +275,7 @@ function Login() {
           </button>
         </p>
       )}
-  
+
       {mode === 'reset' && (
         <p style={styles.text}>
           ¿Ya recuerdas tu contraseña?{' '}
@@ -297,15 +294,20 @@ const styles = {
     padding: '30px',
     margin: 'auto',
     marginTop: '100px',
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(255, 255, 255, 0.8)', // Fondo blanco semi-transparente
     borderRadius: '10px',
-    boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
     textAlign: 'center',
     fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+    backdropFilter: 'blur(10px)', // Añadido para dar un efecto difuso al fondo
+    position: 'relative',
+    zIndex: '1',
   },
   title: {
     marginBottom: '20px',
     color: '#333',
+    fontSize: '24px', // Aumenté el tamaño de la fuente para hacerlo más prominente
+    fontWeight: 'bold',
   },
   error: {
     color: 'red',
@@ -324,11 +326,16 @@ const styles = {
   },
   input: {
     width: '100%',
-    padding: '10px',
+    padding: '12px',
     marginTop: '5px',
     borderRadius: '5px',
     border: '1px solid #ddd',
     fontSize: '16px',
+    marginBottom: '15px', // Añadí espacio entre los campos de entrada
+    transition: 'all 0.3s ease', // Efecto de transición al enfocar el campo
+  },
+  inputFocus: {
+    borderColor: '#007bff', // Color de borde cuando el input está enfocado
   },
   passwordContainer: {
     position: 'relative',
@@ -351,6 +358,10 @@ const styles = {
     borderRadius: '5px',
     fontSize: '16px',
     cursor: 'pointer',
+    transition: 'all 0.3s ease', // Transición para el hover
+  },
+  buttonHover: {
+    backgroundColor: '#0056b3', // Color de fondo del botón al pasar el mouse
   },
   link: {
     background: 'none',
@@ -365,6 +376,18 @@ const styles = {
     fontSize: '14px',
     color: '#666',
   },
+  background: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    zIndex: '-1', // Asegura que la imagen quede detrás del contenido
+  },
 };
+
+
 
 export default Login;

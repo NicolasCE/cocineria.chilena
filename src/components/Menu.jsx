@@ -3,7 +3,6 @@ import React from "react";
 const Menu = () => (
     <section id="carta" className="section-menu">
     <div className="container">
-      <h2 className="title">Nuestra Carta 📩 + Precios 💵 </h2>
       <div className="menu-grid">
         <div className="menu-item">
           <img
@@ -35,7 +34,7 @@ const Menu = () => (
         <div className="menu-item">
           <img src="./img/br.jpg" alt="Barros Loco" />
           <div className="menu-details">
-            <h3>Barros Loco</h3>
+            <h3>Barros Luco</h3>
             <p>
               Un sandwich grande con mayo, palta y carne jugosa, ideal para
               cualquier hora.

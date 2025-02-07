@@ -82,20 +82,24 @@ code {
 
 
 
-
-/*NAVBARRR*/
-/* Estilo general del navbar */
+/* Navbar base */
 .navbar {
-  background-color: rgba(0, 0, 0, 0.85); /* Fondo más oscuro para resaltar los íconos */
-  padding: 10px 20px; /* Espaciado adecuado */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+  background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro */
+  padding-top: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  transition: background-color 0.3s ease;
+}
+
+/* Cuando el navbar tiene la clase "scrolled" (desplazado) */
+.navbar.scrolled {
+  background-color: #34495e; /* Fondo más oscuro */
 }
 
 /* Estilo del nombre del restaurante */
 .navbar-brand .brand-name {
   display: flex;
   align-items: center;
-  color: #ffcc00; /* Color dorado para resaltar el nombre */
+  color: #ffffff; /* Color blanco para el nombre */
   font-size: 1.5rem; /* Tamaño de fuente mayor para el nombre */
   font-weight: bold;
   text-transform: uppercase; /* Estilo mayúsculas */
@@ -116,27 +120,9 @@ code {
   text-decoration: none;
 }
 
-
-
 .navbar-item i {
-  margin-right: 8px; /* Separación entre el ícono y el texto */
+  margin-right: 10px; /* Separación entre el ícono y el texto */
   font-size: 1.3rem; /* Íconos un poco más grandes */
-}
-
-/* Estilo del tooltip en el navbar si se quiere agregar */
-.navbar-item .whatsapp-tooltip {
-  position: absolute;
-  bottom: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #128C7E;
-  color: white;
-  padding: 8px;
-  border-radius: 10px;
-  font-size: 14px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s;
 }
 
 
@@ -221,11 +207,6 @@ code {
   margin: 10px 0;
 }
 
-/* Estilo del botón flotante */
-
-.cta-button:hover {
-  background-color: #ff4c3b;
-}
 
 .arrow {
   margin-left: 10px;
@@ -280,6 +261,8 @@ code {
 .cta-button.secondary:hover {
   background-color: #45a049;
 }
+
+
 
 /*footer*/
 .footer {
@@ -345,6 +328,7 @@ code {
 .section-menu {
   background-color: #f9f9f9; 
   padding: 50px 20px;
+  margin-top: 80px;
   text-align: center;
 }
 
